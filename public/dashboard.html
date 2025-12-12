@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Empleados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Sistema de Empleados - CRUD</h1>
+        <div>
+            <span>Usuario: <span id="userName"></span></span> | 
+            <button id="logoutBtn">Salir</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Lista de Empleados</h2>
+        
+        <button id="addEmployeeBtn" class="btn-add">Agregar Nuevo Empleado</button>
+        
+        <div id="addForm" class="form-container" style="display: none;">
+            <h3>Nuevo Empleado</h3>
+            <table>
+                <tr>
+                    <td>Nombre:</td>
+                    <td><input type="text" id="newFname" required></td>
+                    <td>Inicial:</td>
+                    <td><input type="text" id="newMinit" maxlength="1" size="5"></td>
+                </tr>
+                <tr>
+                    <td>Apellido:</td>
+                    <td><input type="text" id="newLname" required></td>
+                    <td>SSN:</td>
+                    <td><input type="text" id="newSsn" maxlength="9" required></td>
+                </tr>
+                <tr>
+                    <td>Fecha Nacimiento:</td>
+                    <td><input type="date" id="newBdate"></td>
+                    <td>Sexo:</td>
+                    <td>
+                        <select id="newSex">
+                            <option value="M">M</option>
+                            <option value="F">F</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dirección:</td>
+                    <td colspan="3"><input type="text" id="newAddress" style="width: 95%;"></td>
+                </tr>
+                <tr>
+                    <td>Salario:</td>
+                    <td><input type="number" id="newSalary" step="0.01"></td>
+                    <td>SSN Supervisor:</td>
+                    <td><input type="text" id="newSuperSsn" maxlength="9"></td>
+                </tr>
+                <tr>
+                    <td>Departamento:</td>
+                    <td colspan="3">
+                        <select id="newDno" required style="width: 200px;"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <button id="saveNewBtn" class="btn-save">Guardar</button>
+                        <button id="cancelNewBtn" class="btn-cancel">Cancelar</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <table class="employee-table" border="1">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>SSN</th>
+                    <th>Sexo</th>
+                    <th>Fecha Nac.</th>
+                    <th>Salario</th>
+                    <th>Departamento</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="employeeTableBody">
+                <tr>
+                    <td colspan="7" align="center">Cargando...</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p>Total: <span id="totalEmployees">0</span> empleados</p>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-box">
+            <h3>Editar Empleado</h3>
+            <input type="hidden" id="editSsn">
+            <table>
+                <tr>
+                    <td>Nombre:</td>
+                    <td><input type="text" id="editFname"></td>
+                    <td>Inicial:</td>
+                    <td><input type="text" id="editMinit" maxlength="1" size="5"></td>
+                </tr>
+                <tr>
+                    <td>Apellido:</td>
+                    <td><input type="text" id="editLname"></td>
+                    <td>SSN:</td>
+                    <td><span id="editSsnDisplay"></span></td>
+                </tr>
+                <tr>
+                    <td>Fecha Nacimiento:</td>
+                    <td><input type="date" id="editBdate"></td>
+                    <td>Sexo:</td>
+                    <td>
+                        <select id="editSex">
+                            <option value="M">M</option>
+                            <option value="F">F</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dirección:</td>
+                    <td colspan="3"><input type="text" id="editAddress" style="width: 95%;"></td>
+                </tr>
+                <tr>
+                    <td>Salario:</td>
+                    <td><input type="number" id="editSalary" step="0.01"></td>
+                    <td>SSN Supervisor:</td>
+                    <td><input type="text" id="editSuperSsn" maxlength="9"></td>
+                </tr>
+                <tr>
+                    <td>Departamento:</td>
+                    <td colspan="3">
+                        <select id="editDno" style="width: 200px;"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" align="center">
+                        <button id="saveEditBtn" class="btn-save">Guardar</button>
+                        <button onclick="closeEditModal()" class="btn-cancel">Cancelar</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Sistema de Empleados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <div class="login-container">
+        <h1>Sistema de Empleados</h1>
+        <h2>Iniciar Sesión</h2>
+        
+        <div id="errorMessage" class="error" style="display: none;"></div>
+        
+        <table>
+            <tr>
+                <td>Email:</td>
+                <td><input type="email" id="email" placeholder="admin@dominio.com"></td>
+            </tr>
+            <tr>
+                <td>Contraseña:</td>
+                <td><input type="password" id="password" placeholder="admin123"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button id="loginBtn">Entrar</button>
+                </td>
+            </tr>
+        </table>
+        
+        <p class="info">Usuario: admin@dominio.com<br>Contraseña: admin123</p>
+    </div>
+
+    <script>
+        const loginBtn = document.getElementById('loginBtn');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const errorMessage = document.getElementById('errorMessage');
+
+        passwordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleLogin();
+            }
+        });
+
+        loginBtn.addEventListener('click', handleLogin);
+
+        async function handleLogin() {
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+
+            if (!email || !password) {
+                showError('Por favor completa todos los campos');
+                return;
+            }
+
+            loginBtn.disabled = true;
+            loginBtn.textContent = 'Cargando...';
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    sessionStorage.setItem('user', JSON.stringify(data.user));
+                    window.location.href = 'dashboard.html';
+                } else {
+                    showError(data.error || 'Error al iniciar sesión');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showError('Error de conexión con el servidor');
+            } finally {
+                loginBtn.disabled = false;
+                loginBtn.textContent = 'Entrar';
+            }
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

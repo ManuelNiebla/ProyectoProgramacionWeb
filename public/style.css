@@ -1,0 +1,267 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.login-container {
+    width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: white;
+    border: 2px solid #333;
+}
+
+.login-container h1 {
+    text-align: center;
+    color: #333;
+}
+
+.login-container h2 {
+    text-align: center;
+    color: #666;
+    font-size: 18px;
+}
+
+.login-container table {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.login-container td {
+    padding: 8px;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.login-container button {
+    padding: 10px 30px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #45a049;
+}
+
+.error {
+    background-color: #ffcccc;
+    color: red;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid red;
+}
+
+.info {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    margin-top: 20px;
+}
+
+.header {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+#logoutBtn {
+    padding: 8px 15px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#logoutBtn:hover {
+    background-color: #da190b;
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+.container h2 {
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+}
+
+.btn-add {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.btn-add:hover {
+    background-color: #45a049;
+}
+
+.btn-save {
+    padding: 8px 20px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn-save:hover {
+    background-color: #007399;
+}
+
+.btn-cancel {
+    padding: 8px 20px;
+    background-color: #666;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.btn-cancel:hover {
+    background-color: #555;
+}
+
+.form-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+}
+
+.form-container h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.form-container table {
+    width: 100%;
+}
+
+.form-container td {
+    padding: 8px;
+}
+
+.form-container input,
+.form-container select {
+    padding: 6px;
+    font-size: 14px;
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.employee-table th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.employee-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.employee-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.employee-table button {
+    padding: 5px 10px;
+    margin: 2px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.employee-table .btn-edit {
+    background-color: #008CBA;
+    color: white;
+    border: none;
+}
+
+.employee-table .btn-edit:hover {
+    background-color: #007399;
+}
+
+.employee-table .btn-delete {
+    background-color: #f44336;
+    color: white;
+    border: none;
+}
+
+.employee-table .btn-delete:hover {
+    background-color: #da190b;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-box {
+    background-color: white;
+    padding: 20px;
+    border: 2px solid #333;
+    max-width: 600px;
+    width: 90%;
+}
+
+.modal-box h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.modal-box table {
+    width: 100%;
+}
+
+.modal-box td {
+    padding: 8px;
+}
+
+.modal-box input,
+.modal-box select {
+    padding: 6px;
+    font-size: 14px;
+}
